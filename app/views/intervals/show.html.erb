@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @interval.date %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @interval.start_time %>
+</p>
+
+<p>
+  <b>Finish time:</b>
+  <%= @interval.finish_time %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @interval.message %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @interval.project.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_interval_path(@interval) %> |
+<%= link_to 'Back', intervals_path %>
