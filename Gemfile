@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'therubyracer'
 gem 'rails', "~> 3.1"
 #gem 'rails', :git => 'git://github.com/rails/rails.git'
 #gem 'ruby-debug19', :require => 'ruby-debug'

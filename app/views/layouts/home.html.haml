@@ -12,11 +12,11 @@
         #user-navigation
           %ul.wat-cf
             %li
-              %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
+              =link_to(t("web-app-theme.session", :default => "Sign In"), new_user_session_path)
             %li
-              %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
+              =link_to(t("web-app-theme.registration", :default => "Register"), new_user_registration_path)
             %li
-              =link_to(t("web-app-theme.logout", :default => "Logout"), destroy_user_session_path, :method => :delete)
+              %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Help")
         #main-navigation
           %ul.wat-cf
       #wrapper.wat-cf
