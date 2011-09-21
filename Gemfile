@@ -18,6 +18,7 @@ gem "jquery-rails"
 gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.1.5"
 gem "omniauth", ">= 0.2.6"
+gem "airbrake"
 #gem "frontend-helpers"
 #gem 'inherited_resources', '1.1.2'
 #gem 'has_scope'
@@ -31,6 +32,7 @@ end
 
 group :production do
   gem 'dalli'
+
 end
 
 group :test do
