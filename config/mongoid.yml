@@ -1,0 +1,11 @@
+development:
+  host: localhost
+  database: jettime_development
+
+test:
+  host: localhost
+  database: jettime_test
+
+# set these environment variables on your prod server
+production:
+  uri: <%= ENV['MONGOLAB_URI'] %>
