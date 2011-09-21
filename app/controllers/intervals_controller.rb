@@ -1,5 +1,5 @@
 class IntervalsController < ApplicationController
-  inherit_resources
+  before_filter :authenticate_user!
 
   def create
     @interval = Interval.new(params[:interval])

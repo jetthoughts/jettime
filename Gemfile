@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', "3.1.0.rc6"
+gem 'rails', "~> 3.1"
 #gem 'rails', :git => 'git://github.com/rails/rails.git'
-# gem 'ruby-debug19', :require => 'ruby-debug'
+#gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :assets do
-  #gem 'sass-rails', "  ~> 3.1.0.rc"
-  #gem 'coffee-rails', "~> 3.1.0.rc"
-  #gem 'uglifier'
+  gem 'sass-rails', "  ~> 3.1"
+  gem 'coffee-rails', "~> 3.1"
+  gem 'uglifier'
 end
 
 gem "haml", ">= 3.1.2"
@@ -18,13 +18,13 @@ gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.1.5"
 gem "omniauth", ">= 0.2.6"
 #gem "frontend-helpers"
-
-# gem 'inherited_resources', '1.1.2'
-# gem 'has_scope'
-
+#gem 'inherited_resources', '1.1.2'
+#gem 'has_scope'
 
 group :development, :test do
-  gem 'web-app-theme', '>= 0.6.2'
+  gem 'hpricot'
+  gem 'ruby_parser'
+  gem 'web-app-theme' #, :git => 'git://github.com/pilu/web-app-theme.git'
   gem 'rspec-rails'
 end
 
@@ -38,8 +38,4 @@ end
 group :deploy do
    gem 'heroku'
    gem 'thin'
-   # Use unicorn as the web server
-   # gem 'unicorn'
-   # Deploy with Capistrano
-   # gem 'capistrano'
 end
