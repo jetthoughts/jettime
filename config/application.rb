@@ -47,9 +47,9 @@ module Jettime
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.compile = true
-    config.assets.digest  = true
-    config.assets.compress = false
+    #config.assets.compile = true
+    #config.assets.digest  = true
+    #config.assets.compress = false
 
     config.generators do |g|
       g.template_engine :haml
