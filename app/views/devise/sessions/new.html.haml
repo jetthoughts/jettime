@@ -4,7 +4,7 @@
   .content.login
     .flash
       - flash.each do |type, message|
-        %div{ :class => "message #{{:alert=>'error'}[type]}" }
+        %div{ :class => "message #{{:alert=>'error'}[type] || type}" }
           %p= message
     = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form login" }) do |f|
       .group.wat-cf
