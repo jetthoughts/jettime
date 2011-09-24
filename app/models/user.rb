@@ -6,11 +6,17 @@ class User
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable,
          :omniauthable
 
-  has_many :projects
 
   field :admin, :type => Boolean, :default => false
   field :first_name
   field :last_name
+
+  #has_many :projects
+  belongs_to :company
+
+  accepts_nested_attributes_for :company
+
+  validates_presence_of :company
 
   before_create :reset_authentication_token
 
@@ -26,6 +32,10 @@ class User
     else # Create a user with a stub password.
       User.create(:email => access_token["user_info"]["email"], :password => Devise.friendly_token[0, 20])
     end
+  end
+
+  def build_company(args={})
+    self.company ||= Company.new(args)
   end
 
 end
