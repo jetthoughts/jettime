@@ -75,7 +75,7 @@ Devise.setup do |config|
   # You can use this to let your user access some features of your application
   # without confirming the account, but blocking it after a certain period
   # (ie 2 days).
-  # config.confirm_within = 2.days
+  config.confirm_within = 2.days
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [ :email ]
@@ -103,7 +103,7 @@ Devise.setup do |config|
   # config.password_length = 6..128
 
   # Regex to use to validate the email address
-  # config.email_regexp = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+  config.email_regexp = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this

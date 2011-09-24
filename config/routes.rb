@@ -1,7 +1,7 @@
 Jettime::Application.routes.draw do
   get "site/index"
 
-  root :to => "home#index"
+  root :to => "site#index"
   resources :projects
 
   resources :intervals
