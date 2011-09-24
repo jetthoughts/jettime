@@ -1,0 +1,23 @@
+require 'spec_helper'
+
+describe Company do
+  context "factory" do
+    subject { create(:company) }
+
+    it { should be_valid }
+    it { subject.name.should_not be_blank }
+  end
+
+  context "validates" do
+    it { should_not be_valid }
+    it { should have(1).error_on(:name) }
+    it { should have(1).error_on(:subdomain) }
+    it "uniqueness of subdomain" do
+      subdomain = Faker::Internet.domain_word
+      create(:company, :subdomain => subdomain)
+      company = build(:company, :subdomain => subdomain)
+      company.should_not be_valid
+      company.should have(1).error_on(:subdomain)
+    end
+  end
+end
