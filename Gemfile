@@ -32,17 +32,17 @@ end
 
 group :production do
   gem 'dalli'
-
 end
 
 group :test do
-   gem "capybara"
-   gem 'database_cleaner'
-   gem 'factory_girl_rails'
-   gem 'mongoid-rspec'
+  gem "capybara"
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'mongoid-rspec'
+  gem 'mocha'
 end
 
 group :deploy do
-   gem 'heroku'
-   gem 'thin'
+  gem 'heroku'
+  gem 'thin'
 end
