@@ -19,6 +19,7 @@ gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.1.5"
 gem "omniauth", ">= 0.2.6"
 gem "airbrake"
+gem "will_paginate", "~> 2"
 #gem "frontend-helpers"
 #gem 'inherited_resources', '1.1.2'
 #gem 'has_scope'

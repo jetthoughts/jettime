@@ -1,5 +1,7 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -23,6 +25,10 @@ class User
   def update_with_password(params={})
     params.delete(:current_password)
     self.update_without_password(params)
+  end
+
+  def full_name
+    [first_name, last_name].join(" ")
   end
 
   #sample of access_token: {"provider"=>"google_apps", "uid"=>"https://www.google.com/accounts/o8/id?id=AItOawlIIiLY8oRYWmOlldK2zWkaFSxKzE3TykU", "user_info"=>{"first_name"=>"Michael", "last_name"=>"Nikitochkin", "name"=>"Michael Nikitochkin"}}

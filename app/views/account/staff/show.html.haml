@@ -1,0 +1,32 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", account_staff_index_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_account_staff_path
+      %li.active= link_to "#{t("web-app-theme.show", :default => "Show")}", account_staff_path
+  .content
+    .inner
+      %p
+        %b
+          = t("activerecord.attributes.account_staff.email", :default => t("activerecord.labels.email", :default => "Email"))
+          \:
+        = @user.email
+      %p
+        %b
+          = t("activerecord.attributes.account_staff.remember_created_at", :default => t("activerecord.labels.remember_created_at", :default => "Remember created at"))
+          \:
+        = @user.remember_created_at
+      %p
+        %b
+          = t("activerecord.attributes.account_staff.full_name", :default => t("activerecord.labels.full_name", :default => "Full name"))
+          \:
+        = @user.full_name
+      %p
+        %b
+          = t("activerecord.attributes.account_staff.company_id", :default => t("activerecord.labels.company_id", :default => "Company"))
+          \:
+        = @user.company.name
+      .wat-cf
+        = link_to image_tag("web-app-theme/themes/default/images/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_account_staff_path(@user), :class => "button"
+        = link_to image_tag("web-app-theme/themes/default/images/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), account_staff_path(@user), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
+- content_for :sidebar, render(:partial => 'sidebar')

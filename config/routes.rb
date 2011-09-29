@@ -15,6 +15,7 @@ Jettime::Application.routes.draw do
     scope :module => "account", :as => "account" do
       root :to => 'dashboards#show'
       resource :dashboard
+      resources :staff
     end
   end
 
