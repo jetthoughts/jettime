@@ -12,7 +12,7 @@ class User
   field :last_name
 
   #has_many :projects
-  belongs_to :company
+  belongs_to :company, :autosave => true
 
   accepts_nested_attributes_for :company
 

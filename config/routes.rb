@@ -1,12 +1,18 @@
 Jettime::Application.routes.draw do
   get "site/index"
 
-  root :to => "site#index"
   resources :projects
-
   resources :intervals
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users,
+             :controllers => {
+                 :omniauth_callbacks => "users/omniauth_callbacks",
+                 :registrations => "registrations"
+             }
+
+  match '/' => 'site#index', :constraints => { :subdomain => 'www' }
+  match '/' => 'site#show', :constraints => { :subdomain => /.+/ }
+  root :to => "site#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

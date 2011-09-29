@@ -7,16 +7,16 @@
         %div{ :class => "message #{type}" }
           %p= message
     = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form" }) do |f|
-      = devise_error_messages!
       = f.fields_for(resource.build_company) do |cf|
         .group
-          = cf.label :name, :class => "label"
+          = cf.label :name, "Company Name", :class => "label"
           = cf.text_field :name, :class => "text_field"
           %span.description Ex. Microsoft LLC
         .group
           = cf.label :subdomain, "Domain", :class => "label"
-          = cf.text_field :subdomain, :class => "text_field"
-          %span.description Ex. example
+          %span.description http://
+          = cf.text_field :subdomain, :class => "text_field", :style => "width: 70%"
+          %span.description .jettime.com
 
       .group
         = f.label :email, :class => "label"
@@ -33,4 +33,6 @@
         %button.button{ :type => "submit" }
           = image_tag "web-app-theme/themes/default/images/icons/tick.png"
           Sign up
-    = render :partial => "devise/shared/links"
+    =# render :partial => "devise/shared/links"
+    .span= new_user_session_url
+    .span= new_user_session_url(:subdomain => "ttt")

@@ -24,7 +24,10 @@ describe User do
 
     it "should build an company" do
       user    = build(:user, :company => nil)
-      company = user.build_company
+      company = user.build_company(attributes_for(:company))
+      user.company.should_not be_nil
+      user.save!
+      user = User.find(user.id)
       user.company.should_not be_nil
     end
   end
