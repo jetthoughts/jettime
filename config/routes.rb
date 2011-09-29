@@ -1,18 +1,24 @@
-Jettime::Application.routes.draw do
-  get "site/index"
+require "routes_constraints/subdomain"
 
+Jettime::Application.routes.draw do
   resources :projects
   resources :intervals
 
   devise_for :users,
              :controllers => {
                  :omniauth_callbacks => "users/omniauth_callbacks",
+                 :sessions => "sessions",
                  :registrations => "registrations"
              }
 
-  match '/' => 'site#index', :constraints => { :subdomain => 'www' }
-  match '/' => 'site#show', :constraints => { :subdomain => /.+/ }
-  root :to => "site#index"
+  constraints(RoutesConstraints::AccountSubdomain) do
+    scope :module => "account", :as => "account" do
+      root :to => 'dashboards#show'
+      resource :dashboard
+    end
+  end
+
+  root :to => "site#index", :constraints => { :subdomain => /www|.{0}/ }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

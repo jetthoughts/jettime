@@ -12,8 +12,6 @@
         #user-navigation
           %ul.wat-cf
             %li
-              =link_to(t("web-app-theme.session", :default => "Sign In"), new_user_session_path)
-            %li
               =link_to(t("web-app-theme.registration", :default => "Register"), new_user_registration_path)
             %li
               %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Help")

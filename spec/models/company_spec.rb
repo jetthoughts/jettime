@@ -30,4 +30,14 @@ describe Company do
     end
 
   end
+
+  context "domain" do
+
+    subject { create(:company) }
+
+    it "should show full domain" do
+      subject.domain.should eq(subject.subdomain + "." + Rails.application.config.domain)
+    end
+
+  end
 end

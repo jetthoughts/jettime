@@ -1,4 +1,8 @@
 Jettime::Application.configure do
+
+  config.domain= "test.host"
+  config.default_url_options = {:host => config.domain}
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's

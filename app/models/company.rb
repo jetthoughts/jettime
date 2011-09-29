@@ -12,4 +12,7 @@ class Company
   has_many :users
   belongs_to :owner, :class_name => "User"
 
+  def domain
+    subdomain + "." + Rails.application.config.domain
+  end
 end
