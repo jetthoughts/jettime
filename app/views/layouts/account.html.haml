@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Web App
+    %title JetTime
     = stylesheet_link_tag 'web_app_theme'
     = javascript_include_tag :defaults, :cache => true
     = csrf_meta_tag
@@ -9,11 +9,9 @@
     #container
       #header
         %h1
-          %a{:href => "/"} Web App
+          %a{:href => "/"} JetTime
         #user-navigation
           %ul.wat-cf
-            %li
-              =link_to(t("web-app-theme.session", :default => "Sign In"), new_user_session_path)
             %li
               %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
             %li
@@ -32,6 +30,6 @@
           #footer
             .block
               %p
-                Copyright &copy; #{Time.now.year} Web App.
+                Copyright &copy; #{Time.now.year} JetThoughts.
         #sidebar
           = yield :sidebar
