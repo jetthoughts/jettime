@@ -4,10 +4,10 @@ class RegistrationsController < Devise::RegistrationsController
 
     if resource.save
       if resource.active_for_authentication?
-        set_flash_message :notice, :signed_up if is_navigational_format?
+        #set_flash_message :notice, :signed_up if is_navigational_format?
         #sign_in(resource_name, resource)
-        logger.debug(">>> Url #{new_user_session_url}")
-        logger.debug(">>> Url #{new_user_session_url(:subdomain => 'd')}")
+        resource.company.owner = resource
+        resource.company.save!
         respond_with resource, :location => new_user_session_url(:subdomain => resource.company.subdomain)
       else
         set_flash_message :notice, :inactive_signed_up, :reason => inactive_reason(resource) if is_navigational_format?
@@ -18,6 +18,10 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords(resource)
       respond_with_navigational(resource) { render_with_scope :new }
     end
+  end
+
+  def after_inactive_sign_up_path_for(resource)
+    new_user_session_url(:subdomain => resource.company.subdomain)
   end
 
 end

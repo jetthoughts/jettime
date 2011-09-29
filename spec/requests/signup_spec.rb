@@ -19,7 +19,10 @@ feature "Signing up" do
 
     click_button 'Sign up'
 
-    Company.where(name: 'Monkey LTD').first.should_not be_nil
+    company = Company.where(name: 'Monkey LTD').first
+    company.should_not be_nil
+    company.owner.should_not be_nil
+    company.owner.email.should == 'monkey@mailinator.com'
 
     page.should have_content("Email")
 

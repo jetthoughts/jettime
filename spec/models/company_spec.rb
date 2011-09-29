@@ -20,4 +20,14 @@ describe Company do
       company.should have(1).error_on(:subdomain)
     end
   end
+
+  context "owner" do
+    subject { create(:company) }
+
+    it "should have owner" do
+      subject.owner = create(:user)
+      subject.owner.should_not be_nil
+    end
+
+  end
 end

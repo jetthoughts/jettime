@@ -10,5 +10,6 @@ class Company
   validates_uniqueness_of :subdomain
 
   has_many :users
+  belongs_to :owner, :class_name => "User"
 
 end
