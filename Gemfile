@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'therubyracer'
 gem 'rails', "~> 3.1"
 #gem 'rails', :git => 'git://github.com/rails/rails.git'
 #gem 'ruby-debug19', :require => 'ruby-debug'
@@ -36,6 +35,7 @@ group :production do
 end
 
 group :test do
+  gem 'therubyracer'
   gem "capybara"
   gem 'database_cleaner'
   gem 'factory_girl_rails'

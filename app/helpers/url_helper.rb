@@ -11,4 +11,8 @@ module UrlHelper
     end
     super
   end
+
+  def current_subdomain
+    request.subdomain
+  end
 end

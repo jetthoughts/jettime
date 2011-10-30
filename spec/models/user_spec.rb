@@ -30,5 +30,11 @@ describe User do
       user = User.find(user.id)
       user.company.should_not be_nil
     end
+
+    it "should find user by subdomain and email" do
+      company = create(:company)
+      user = create(:user, :email => "monkey@mailinator.com", :company => company )
+      company.users.first.should == user
+    end
   end
 end

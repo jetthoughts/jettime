@@ -22,6 +22,16 @@ class User
 
   before_create :reset_authentication_token
 
+  attr_accessor :subdomain
+
+  #def self.find_for_authentication(conditions={})
+  #  conditions[:company] = true
+  #  super
+  #end
+  def self.find_for_authentication(conditions={})
+    Company.where(subdomain: conditions.delete(:subdomain)).first.users.where(conditions).first
+  end
+
   def update_with_password(params={})
     params.delete(:current_password)
     self.update_without_password(params)

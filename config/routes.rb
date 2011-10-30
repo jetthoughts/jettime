@@ -1,6 +1,11 @@
 require "routes_constraints/subdomain"
 
-Jettime::Application.routes.draw do
+JetTime::Application.routes.draw do
+
+  constraints(RoutesConstraints::SiteSubdomain) do
+    root :to => "site#index"
+  end
+  
   resources :projects
   resources :intervals
 
@@ -19,7 +24,7 @@ Jettime::Application.routes.draw do
     end
   end
 
-  root :to => "site#index", :constraints => { :subdomain => /www|.{0}/ }
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,6 +1,8 @@
-Jettime::Application.configure do
+JetTime::Application.configure do
 
   config.domain= "lvh.me:3000"
+  config.site_subdomain="www"
+  config.admin_subdomain="admin"
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

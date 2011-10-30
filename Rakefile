@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Jettime::Application.load_tasks
+JetTime::Application.load_tasks

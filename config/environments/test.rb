@@ -1,6 +1,9 @@
-Jettime::Application.configure do
+JetTime::Application.configure do
 
   config.domain= "test.host"
+  config.site_subdomain="www"
+  config.admin_subdomain="admin"
+
   config.default_url_options = {:host => config.domain}
 
   # Settings specified here will take precedence over those in config/application.rb
