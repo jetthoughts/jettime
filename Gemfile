@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'bundler', '1.1.rc'
 gem 'rails', "~> 3.1"
 #gem 'rails', :git => 'git://github.com/rails/rails.git'
 #gem 'ruby-debug19', :require => 'ruby-debug'
@@ -10,13 +11,14 @@ group :assets do
   gem 'uglifier'
 end
 
+
 gem "haml", ">= 3.1.2"
 gem "haml-rails", ">= 0.3.4", :group => :development
 gem "devise"
 gem "jquery-rails"
 gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.1.5"
-gem "omniauth", ">= 0.2.6"
+gem "omniauth", "= 0.3.0"
 gem "airbrake"
 gem "will_paginate", "~> 2"
 #gem "frontend-helpers"
@@ -28,12 +30,16 @@ group :development, :test do
   gem 'ruby_parser'
   gem 'web-app-theme' #, :git => 'git://github.com/pilu/web-app-theme.git'
   gem 'rspec-rails'
+  gem 'rb-fsevent'
   gem 'guard-spork'
+  gem 'guard-bundler'
   gem 'guard-rspec'
+  gem 'spork'
 end
 
 group :production do
   gem 'dalli'
+  gem 'newrelic_rpm'
 end
 
 group :test do
