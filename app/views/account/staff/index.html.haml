@@ -10,7 +10,8 @@
     .inner
       %table.table
         %tr
-          %th.first Full Name
+          %th.first
+          %th Full Name
           %th
             = t("activerecord.attributes.account_staff.email", :default => t("activerecord.labels.email", :default => "Email"))
           %th= t("web-app-theme.created_at", :default => "Created at")
@@ -18,6 +19,8 @@
         - @users.each do |user|
           %tr{:class => cycle("odd", "even")}
             %td.first
+              = check_box_tag :name
+            %td
               = user.full_name
             %td
               = link_to user.email, account_staff_path(user)

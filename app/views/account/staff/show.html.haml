@@ -13,11 +13,6 @@
         = @user.email
       %p
         %b
-          = t("activerecord.attributes.account_staff.remember_created_at", :default => t("activerecord.labels.remember_created_at", :default => "Remember created at"))
-          \:
-        = @user.remember_created_at
-      %p
-        %b
           = t("activerecord.attributes.account_staff.full_name", :default => t("activerecord.labels.full_name", :default => "Full name"))
           \:
         = @user.full_name
