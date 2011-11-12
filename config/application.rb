@@ -64,6 +64,8 @@ module JetTime
     config.to_prepare do
       Devise::SessionsController.layout "sessions"
       Devise::RegistrationsController.layout "sessions"
+      Devise::InvitationsController.layout "sessions"
+      Devise::PasswordsController.layout "sessions"
     end
   end
 end

@@ -4,9 +4,9 @@ class User
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable,
-         :omniauthable
+         :omniauthable, :invite_for => 2.weeks
 
 
   field :admin, :type => Boolean, :default => false
@@ -29,7 +29,7 @@ class User
   #  super
   #end
   def self.find_for_authentication(conditions={})
-    Company.where(subdomain: conditions.delete(:subdomain)).firsts.users.where(conditions).first
+    Company.where(subdomain: conditions.delete(:subdomain)).first.users.where(conditions).first
   end
 
   def update_with_password(params={})

@@ -15,6 +15,7 @@ end
 gem "haml", ">= 3.1.2"
 gem "haml-rails", ">= 0.3.4", :group => :development
 gem "devise"
+gem 'devise_invitable'
 gem "jquery-rails"
 gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.1.5"
@@ -22,7 +23,6 @@ gem 'oa-openid', :require => 'omniauth/openid'
 gem "airbrake"
 gem "will_paginate", "~> 2"
 #gem "frontend-helpers"
-#gem 'inherited_resources', '1.1.2'
 #gem 'has_scope'
 
 group :development, :test do
