@@ -5,9 +5,6 @@ JetTime::Application.routes.draw do
   constraints(RoutesConstraints::SiteSubdomain) do
     root :to => "site#index"
   end
-  
-  resources :projects
-  resources :intervals
 
   devise_for :users,
              :controllers => {
@@ -17,10 +14,12 @@ JetTime::Application.routes.draw do
              }
 
   constraints(RoutesConstraints::AccountSubdomain) do
-    scope :module => "account", :as => "account" do
+    #scope :module => "account", :as => "account" do
+    scope :module => "account" do
       root :to => 'dashboards#show'
       resource :dashboard
       resources :staff
+      resources :projects
     end
   end
 

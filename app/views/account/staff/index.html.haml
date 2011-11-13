@@ -1,8 +1,8 @@
 .block
   .secondary-navigation
     %ul.wat-cf
-      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", account_staff_index_path
-      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_account_staff_path
+      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", staff_index_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_staff_path
   .content
     %h2.title
       = t("web-app-theme.all", :default => "All")
@@ -23,14 +23,14 @@
             %td
               = user.full_name
             %td
-              = link_to user.email, account_staff_path(user)
+              = link_to user.email, staff_path(user)
             %td
               = user.created_at
             %td.last
-              = link_to "#{t("web-app-theme.show", :default => "Show")}", account_staff_path(user)
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", staff_path(user)
               |
-              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_account_staff_path(user)} |
-              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", account_staff_path(user), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_staff_path(user)} |
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", staff_path(user), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
       .actions-bar.wat-cf
         .actions
         = will_paginate @users

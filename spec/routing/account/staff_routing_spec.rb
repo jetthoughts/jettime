@@ -12,7 +12,7 @@ describe Account::StaffController do
 
   describe "paths" do
     it "correct path #account_staff_index_path" do
-      account_staff_index_path().should eq("/staff")
+      staff_index_path().should eq("/staff")
     end
   end
 end

@@ -14,7 +14,7 @@ feature "Account Signing in" do
   end
 
   scenario "Signing in with correct fields" do
-    visit(account_root_url(:subdomain => @company.subdomain))
+    visit(root_url(:subdomain => @company.subdomain))
 
     page.should have_content("Sign in")
     within("#user_new") do
@@ -29,7 +29,7 @@ feature "Account Signing in" do
   end
 
   scenario "without correct fields" do
-    visit(account_root_url(:host => @company.domain))
+    visit(root_url(:host => @company.domain))
     page.should have_content("Sign in")
     within("#user_new") do
       fill_in 'Email', :with => 'monkey_incorrect@mailinator.com'
@@ -42,7 +42,7 @@ feature "Account Signing in" do
   end
 
   scenario "Signin correct fields for different company" do
-    visit(account_root_url(:host => @company_ext.domain))
+    visit(root_url(:host => @company_ext.domain))
 
     page.should have_content("Sign in")
     within("#user_new") do
@@ -56,7 +56,7 @@ feature "Account Signing in" do
   end
 
   scenario "Signin for not existen company" do
-    visit(account_root_url(:host => "not.exists.org"))
+    visit(root_url(:host => "not.exists.org"))
     page.should have_content("Register")
   end
 

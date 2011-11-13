@@ -54,6 +54,8 @@ Spork.prefork do
     config.treat_symbols_as_metadata_keys_with_true_values = true
 
     config.include Factory::Syntax::Methods
+    #config.include Devise::TestHelpers#, :type => [:controller, :requests]
+    #config.extend ControllerMacros#, :type => [:controller, :requests]
     #config.include(Capybara, :type => :integration)
   end
 

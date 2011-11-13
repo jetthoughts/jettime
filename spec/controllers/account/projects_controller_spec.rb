@@ -18,7 +18,7 @@
 ## Message expectations are only used when there is no simpler way to specify
 ## that an instance is receiving a specific message.
 #
-#describe ProjectsController do
+#describe Account::ProjectsController do
 #
 #  # This should return the minimal set of attributes required to create a valid
 #  # Project. As you add validations to Project, be sure to
@@ -29,7 +29,7 @@
 #
 #  describe "GET index" do
 #    it "assigns all projects as @projects" do
-#      project = Project.create! valid_attributes
+#      project = create(:project)
 #      get :index
 #      assigns(:projects).should eq([project])
 #    end
@@ -38,7 +38,7 @@
 #  describe "GET show" do
 #    it "assigns the requested project as @project" do
 #      project = Project.create! valid_attributes
-#      get :show, :id => project.id.to_s
+#      get :show, :id => project.id
 #      assigns(:project).should eq(project)
 #    end
 #  end
@@ -53,7 +53,7 @@
 #  describe "GET edit" do
 #    it "assigns the requested project as @project" do
 #      project = Project.create! valid_attributes
-#      get :edit, :id => project.id.to_s
+#      get :edit, :id => project.id
 #      assigns(:project).should eq(project)
 #    end
 #  end
@@ -125,7 +125,7 @@
 #        project = Project.create! valid_attributes
 #        # Trigger the behavior that occurs when invalid params are submitted
 #        Project.any_instance.stub(:save).and_return(false)
-#        put :update, :id => project.id.to_s, :project => {}
+#        put :update, :id => project.id, :project => {}
 #        assigns(:project).should eq(project)
 #      end
 #
@@ -133,7 +133,7 @@
 #        project = Project.create! valid_attributes
 #        # Trigger the behavior that occurs when invalid params are submitted
 #        Project.any_instance.stub(:save).and_return(false)
-#        put :update, :id => project.id.to_s, :project => {}
+#        put :update, :id => project.id, :project => {}
 #        response.should render_template("edit")
 #      end
 #    end
@@ -143,13 +143,13 @@
 #    it "destroys the requested project" do
 #      project = Project.create! valid_attributes
 #      expect {
-#        delete :destroy, :id => project.id.to_s
+#        delete :destroy, :id => project.id
 #      }.to change(Project, :count).by(-1)
 #    end
 #
 #    it "redirects to the projects list" do
 #      project = Project.create! valid_attributes
-#      delete :destroy, :id => project.id.to_s
+#      delete :destroy, :id => project.id
 #      response.should redirect_to(projects_url)
 #    end
 #  end

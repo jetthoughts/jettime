@@ -30,11 +30,15 @@ group :development, :test do
   gem 'ruby_parser'
   gem 'web-app-theme' #, :git => 'git://github.com/pilu/web-app-theme.git'
   gem 'rspec-rails'
-  gem 'rb-fsevent'
-  gem 'guard-spork'
-  gem 'guard-bundler'
-  gem 'guard-rspec'
-  gem 'spork'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
+  gem 'foreman', :require => false
+  gem 'guard-spork', :require => false
+  gem 'guard-bundler', :require => false
+  gem 'guard-rspec', :require => false
+  gem 'spork', :require => false
+  gem 'growl'
 end
 
 group :production do

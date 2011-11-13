@@ -1,8 +1,9 @@
 class Project
   include Mongoid::Document
+  include Mongoid::Timestamps
+
   field :name, :type => String
-  field :decription, :type => String
+  field :description, :type => String
 
-  has_many :projects
-
+  belongs_to :company
 end

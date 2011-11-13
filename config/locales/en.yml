@@ -2,6 +2,17 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  web-app-theme:
+    save: Save
+    cancel: Cancel
+    list: List
+    edit: Edit
+    new: New
+    show: Show
+    delete: Delete
+    confirm: Are you sure?
+    created_at: Created at
+    all: All
   date:
     formats:
       default: "%m/%d/%Y"

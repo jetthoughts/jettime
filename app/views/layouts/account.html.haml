@@ -23,7 +23,9 @@
         #main-navigation
           %ul.wat-cf
             %li{:class => controller.controller_path == 'account/staff' ? 'active' : '' }
-              %a{:href => account_staff_index_path} Staff
+              %a{:href => staff_index_path} Staff
+            %li{:class => controller.controller_path == 'account/projects' ? 'active' : '' }
+              %a{:href => projects_path} Projects
       #wrapper.wat-cf
         .flash
           - flash.each do |type, message|
