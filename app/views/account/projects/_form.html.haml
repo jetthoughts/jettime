@@ -2,10 +2,19 @@
   = f.label :name, t("activerecord.attributes.project.name", :default => "Name"), :class => :label
   = f.text_field :name, :class => 'text_field'
   %span.description Ex: a simple text
+
 .group
   = f.label :description, t("activerecord.attributes.project.description", :default => "Description"), :class => :label
   = f.text_field :description, :class => 'text_field'
   %span.description Ex: a simple text
+
+.group
+  = f.label :user_ids, t("activerecord.attributes.project.members", :default => "Members"), :class => :label
+  = f.select :user_ids,
+    @current_company.users.all.map {|p| [ p.full_name, p.id ] },
+     {}, {:multiple => "multiple" }
+
+
 .group.navform.wat-cf
   %button.button{:type => "submit"}
     = image_tag("web-app-theme/themes/default/images/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")

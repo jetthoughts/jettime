@@ -18,6 +18,11 @@
         = @project.name
       %p
         %b
+          = t("activerecord.attributes.project.members", :default => t("activerecord.labels.name", :default => "Members"))
+          \:
+        = @project.members.map{|u| u.full_name}.join(", ")
+      %p
+        %b
           = t("activerecord.attributes.project.description", :default => t("activerecord.labels.description", :default => "Description"))
           \:
         = @project.description
