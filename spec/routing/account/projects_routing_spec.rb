@@ -34,7 +34,7 @@ describe Account::ProjectsController do
   end
 
   describe "paths" do
-    it "correct path #account_staff_index_path" do
+    it "correct path #staff_index_path" do
       projects_path.should eq("/projects")
     end
   end

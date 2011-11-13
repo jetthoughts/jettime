@@ -11,7 +11,7 @@
       %table.table
         %tr
           %th.first
-          %th  ID
+          %th Name
           %th= t("web-app-theme.created_at", :default => "Created at")
           %th.last &nbsp;
         - @projects.each do |project|
@@ -19,7 +19,7 @@
             %td
               = check_box_tag :tag
             %td
-              = link_to project._id, project_path(project)
+              = link_to project.name, project_path(project)
             %td
               = project.created_at
             %td.last

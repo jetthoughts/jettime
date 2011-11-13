@@ -10,7 +10,7 @@ describe Account::DashboardsController do
   end
 
   describe "paths" do
-    it "correct path #account_dashboard_url" do
+    it "correct path #dashboard_url" do
      root_url(:host => "example.com").should eq("http://example.com/")
     end
   end

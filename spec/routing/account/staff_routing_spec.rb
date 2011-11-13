@@ -11,7 +11,7 @@ describe Account::StaffController do
   end
 
   describe "paths" do
-    it "correct path #account_staff_index_path" do
+    it "correct path #staff_index_path" do
       staff_index_path().should eq("/staff")
     end
   end
