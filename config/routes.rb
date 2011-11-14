@@ -20,6 +20,7 @@ JetTime::Application.routes.draw do
       resource :dashboard
       resources :staff
       resources :projects
+      resources :timesheets
     end
   end
 
