@@ -6,3 +6,4 @@ tmp/
 #config/mongoid.yml
 .idea
 public/assets
+Procfile
