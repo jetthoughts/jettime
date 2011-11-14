@@ -31,7 +31,7 @@ class Account::StaffController < Account::BaseController
 
   def update
     @user = current_company.users.find(params[:id])
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(params[:user].delete_if{|k,v| v.blank?})
       redirect_to :staff_index
     else
       render :new

@@ -29,6 +29,13 @@ describe Project do
         subject.user_ids.should have(1).item
         subject.users.entries.should include(user)
       end
+      
+      it "should assign members by ids" do
+        user = create(:user)
+        subject.user_ids = [user.id]
+        subject.members.should have(1).item
+        subject.users.entries.should include(user)
+      end
 
     end
   end
