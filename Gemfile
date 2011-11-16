@@ -29,7 +29,11 @@ group :development, :test do
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'web-app-theme' #, :git => 'git://github.com/pilu/web-app-theme.git'
-  gem "rspec-rails", "2.8.0.rc1"
+  gem "rspec-rails",        :git => "git://github.com/rspec/rspec-rails.git"
+  gem "rspec",              :git => "git://github.com/rspec/rspec.git"
+  gem "rspec-core",         :git => "git://github.com/rspec/rspec-core.git"
+  gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
+  gem "rspec-mocks",        :git => "git://github.com/rspec/rspec-mocks.git"
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
@@ -39,7 +43,6 @@ group :development, :test do
   gem 'guard-rspec', :require => false
   gem 'spork', :require => false
   gem 'growl'
-  gem 'rspec'
 end
 
 group :production do
