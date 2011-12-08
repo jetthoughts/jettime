@@ -1,8 +1,8 @@
 .block
   .secondary-navigation
     %ul.wat-cf
-      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", account_timesheets_path
-      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_account_timesheet_path
+      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", timesheets_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_timesheet_path
   .content
     %h2.title
       = t("web-app-theme.all", :default => "All")
@@ -12,7 +12,7 @@
         %tr
           %th.first ID
           %th
-            = t("activerecord.attributes.account_timesheet._type", :default => t("activerecord.labels._type", :default => "_type"))
+            = t("activerecord.attributes.timesheet._type", :default => t("activerecord.labels._type", :default => "_type"))
           %th= t("web-app-theme.created_at", :default => "Created at")
           %th.last &nbsp;
         - @timesheets.each do |timesheet|
@@ -20,14 +20,14 @@
             %td
               = timesheet.id
             %td
-              = link_to timesheet._type, account_timesheet_path(timesheet)
+              = link_to timesheet._type, timesheet_path(timesheet)
             %td
               = timesheet.created_at
             %td.last
-              = link_to "#{t("web-app-theme.show", :default => "Show")}", account_timesheet_path(timesheet)
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", timesheet_path(timesheet)
               |
-              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_account_timesheet_path(timesheet)} |
-              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", account_timesheet_path(timesheet), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_timesheet_path(timesheet)} |
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", timesheet_path(timesheet), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
       .actions-bar.wat-cf
         .actions
         = will_paginate @timesheets

@@ -2,11 +2,11 @@ class Account::TimesheetsController < Account::BaseController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_company.projects.paginate(:page => params[:page])
+    @timesheets = current_company.projects.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @projects }
+      format.json { render json: @timesheets }
     end
   end
 

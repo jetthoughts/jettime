@@ -33,7 +33,8 @@ describe User do
 
     it "should find user by subdomain and email" do
       company = create(:company)
-      user = create(:user, :email => "monkey@mailinator.com", :company => company )
+      email = Faker::Internet.email
+      user = create(:user, :email => email, :company => company )
       company.users.first.should == user
     end
   end

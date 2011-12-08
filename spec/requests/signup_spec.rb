@@ -8,11 +8,11 @@ feature "Signing up" do
   scenario "Signing up with correct fields" do
     visit("/")
     click_link 'Register'
-
+    email = Faker::Internet.email
     within("#user_new") do
       fill_in 'Name', :with => 'Monkey LTD'
       fill_in 'Domain', :with => 'jettime'
-      fill_in 'Email', :with => 'monkey@mailinator.com'
+      fill_in 'Email', :with => email
       fill_in 'Password', :with =>"monkey"
       fill_in 'Re-enter Password', :with =>"monkey"
     end
@@ -22,7 +22,7 @@ feature "Signing up" do
     company = Company.where(name: 'Monkey LTD').first
     company.should_not be_nil
     company.owner.should_not be_nil
-    company.owner.email.should == 'monkey@mailinator.com'
+    company.owner.email.should == email
 
     page.should have_content("Email")
 

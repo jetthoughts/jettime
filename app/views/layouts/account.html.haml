@@ -26,6 +26,9 @@
               %a{:href => staff_index_path} Staff
             %li{:class => controller.controller_path == 'account/projects' ? 'active' : '' }
               %a{:href => projects_path} Projects
+            %li{:class => controller.controller_path == 'account/timesheets' ? 'active' : '' }
+              %a{:href => timesheets_path} Timesheets
+            
       #wrapper.wat-cf
         .flash
           - flash.each do |type, message|

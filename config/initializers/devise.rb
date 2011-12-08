@@ -217,7 +217,8 @@ Devise.setup do |config|
 
   #config.omniauth :open_id, OpenID::Store::Filesystem.new('/tmp')
   #config.omniauth :open_id, OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
-  config.omniauth :google_apps, OpenID::Store::Filesystem.new('./tmp') #, :domain => 'gmail.com'
+  #config.omniauth :open_id, OpenID::Store::Filesystem.new('./tmp'), :name => 'google', :require => 'omniauth-openid' #, :domain => 'gmail.com'
+  config.omniauth :google_oauth2, OpenID::Store::Filesystem.new('/tmp')
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

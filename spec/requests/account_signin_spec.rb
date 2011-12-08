@@ -3,12 +3,12 @@ require "spec_helper"
 feature "Account Signing in" do
   background do
     @company = create(:company)
-    @user = create(:user, :email => "monkey@mailinator.com", :company => @company )
+    @user = create(:user, :company => @company )
     @company.owner = @user
     @company.save!
 
     @company_ext = create(:company)
-    @user_ext = create(:user, :email => "monkey1@mailinator.com", :company => @company_ext )
+    @user_ext = create(:user, :company => @company_ext )
     @company_ext.owner = @user_ext
     @company_ext.save!
   end
@@ -18,7 +18,7 @@ feature "Account Signing in" do
 
     page.should have_content("Sign in")
     within("#user_new") do
-      fill_in 'Email', :with => 'monkey@mailinator.com'
+      fill_in 'Email', :with => @user.email
       fill_in 'Password', :with =>"monkey"
     end
 
@@ -46,7 +46,7 @@ feature "Account Signing in" do
 
     page.should have_content("Sign in")
     within("#user_new") do
-      fill_in 'Email', :with => 'monkey@mailinator.com'
+      fill_in 'Email', :with => @user.email
       fill_in 'Password', :with =>"monkey"
     end
 
