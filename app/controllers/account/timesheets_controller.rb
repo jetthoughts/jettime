@@ -76,7 +76,7 @@ class Account::TimesheetsController < Account::BaseController
     @timesheet.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_url }
+      format.html { redirect_to timesheets_url }
       format.json { head :ok }
     end
   end

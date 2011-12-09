@@ -61,7 +61,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'mongoid-rspec'
   gem 'mocha'
-  gem 'ffaker'
+  gem 'ffaker', '>= 1.10.1'
 end
 
 group :deploy do

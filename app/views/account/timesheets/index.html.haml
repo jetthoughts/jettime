@@ -19,7 +19,7 @@
         - @timesheets.each do |timesheet|
           %tr{:class => cycle("odd", "even")}
             %td
-              = timesheet.date rescue nil
+              = l timesheet.date
             %td
               = timesheet.project.try(:name)
             %td

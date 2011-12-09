@@ -294,7 +294,7 @@ DEPENDENCIES
   devise
   devise_invitable
   factory_girl_rails
-  ffaker
+  ffaker (>= 1.10.1)
   foreman
   growl
   guard-bundler

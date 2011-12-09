@@ -31,6 +31,8 @@ feature "Timesheets" do
     click_link 'New'
     within(".form") do
       fill_in 'Date', :with => "22/12/2011"
+      fill_in 'Hours', :with => 1
+      fill_in 'Notes', :with => Faker::Lorem.sentence
       click_button ''
     end
     
@@ -41,14 +43,15 @@ feature "Timesheets" do
     page.should have_content("22/12/2011")
   end
   
-  scenario "Should not create a new timesheet entry without Hours" do
+  scenario "Should not create a new timesheet entry without Hours, Date, Notes" do
     click_link 'New'
     within(".form") do
-      fill_in 'Date', :with => "22/12/2011"
       click_button ''
     end
     
-    page.should have_content("Timesheet was successfully created")
+    page.should have_content("Hours can't be blank")
+    page.should have_content("Date can't be blank")
+    page.should have_content("Notes can't be blank")
   end
 
 end

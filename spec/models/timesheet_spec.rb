@@ -14,6 +14,9 @@ describe Timesheet do
       subject.should_not be_valid
       subject.should have(1).error_on(:user_id)
       subject.should have(1).error_on(:project_id)
+      subject.should have(1).error_on(:date)
+      subject.should have(1).error_on(:hours)
+      subject.should have(1).error_on(:notes)
     end
     
     it "should parse date correctly" do
