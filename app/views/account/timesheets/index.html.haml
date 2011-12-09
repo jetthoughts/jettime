@@ -1,7 +1,7 @@
 .block
   .secondary-navigation
     %ul.wat-cf
-      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", timesheets_path
+      %li.first.active= link_to "Daily", timesheets_path
       %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_timesheet_path
   .content
     %h2.title
@@ -10,19 +10,24 @@
     .inner
       %table.table
         %tr
-          %th.first ID
-          %th
-            = t("activerecord.attributes.timesheet._type", :default => t("activerecord.labels._type", :default => "_type"))
-          %th= t("web-app-theme.created_at", :default => "Created at")
+          %th.first Date
+          %th Project
+          %th Task
+          %th Notes
+          %th Hours
           %th.last &nbsp;
         - @timesheets.each do |timesheet|
           %tr{:class => cycle("odd", "even")}
             %td
-              = timesheet.id
+              = timesheet.date rescue nil
             %td
-              = link_to timesheet._type, timesheet_path(timesheet)
+              = timesheet.project.try(:name)
             %td
-              = timesheet.created_at
+              = timesheet.task.try(:name)
+            %td
+              = timesheet.notes
+            %td
+              = timesheet.hours
             %td.last
               = link_to "#{t("web-app-theme.show", :default => "Show")}", timesheet_path(timesheet)
               |

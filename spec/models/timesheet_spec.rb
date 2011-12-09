@@ -15,5 +15,13 @@ describe Timesheet do
       subject.should have(1).error_on(:user_id)
       subject.should have(1).error_on(:project_id)
     end
+    
+    it "should parse date correctly" do
+      subject.date = '12/22/2011'
+      subject.date.month.should eq(12)
+      subject.date.day.should eq(22)
+      subject.date.year.should eq(2011)
+    end
   end
+  
 end

@@ -15,6 +15,7 @@ class User
 
   belongs_to :company, :autosave => true
   has_many :members
+  has_many :timesheets
 
   accepts_nested_attributes_for :company
 

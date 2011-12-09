@@ -16,4 +16,11 @@ en:
   date:
     formats:
       default: "%m/%d/%Y"
+  time:
+     formats:
+       short:
+
+date:
+  formats:
+    default: "%m/%d/%Y"
 

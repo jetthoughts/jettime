@@ -38,4 +38,10 @@ describe User do
       company.users.first.should == user
     end
   end
+  
+  context "timesheets" do
+    subject { create(:user) }
+    
+    it { should respond_to(:timesheets) }
+  end
 end

@@ -1,52 +1,42 @@
 .block
   .secondary-navigation
     %ul.wat-cf
-      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", account_timesheets_path
-      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_account_timesheet_path
-      %li.active= link_to "#{t("web-app-theme.show", :default => "Show")}", account_timesheet_path
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", timesheets_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_timesheet_path
+      %li.active= link_to "#{t("web-app-theme.show", :default => "Show")}", timesheet_path
   .content
     .inner
       %p
         %b
-          = t("activerecord.attributes.account_timesheet._type", :default => t("activerecord.labels._type", :default => " type"))
-          \:
-        = @timesheet._type
-      %p
-        %b
-          = t("activerecord.attributes.account_timesheet._id", :default => t("activerecord.labels._id", :default => ""))
-          \:
-        = @timesheet._id
-      %p
-        %b
-          = t("activerecord.attributes.account_timesheet.hours", :default => t("activerecord.labels.hours", :default => "Hours"))
+          = t("activerecord.attributes.timesheet.hours", :default => t("activerecord.labels.hours", :default => "Hours"))
           \:
         = @timesheet.hours
       %p
         %b
-          = t("activerecord.attributes.account_timesheet.date", :default => t("activerecord.labels.date", :default => "Date"))
+          = t("activerecord.attributes.timesheet.date", :default => t("activerecord.labels.date", :default => "Date"))
           \:
-        = @timesheet.date
+        = l @timesheet.date
       %p
         %b
-          = t("activerecord.attributes.account_timesheet.notes", :default => t("activerecord.labels.notes", :default => "Notes"))
+          = t("activerecord.attributes.timesheet.notes", :default => t("activerecord.labels.notes", :default => "Notes"))
           \:
         = @timesheet.notes
       %p
         %b
-          = t("activerecord.attributes.account_timesheet.project_id", :default => t("activerecord.labels.project_id", :default => "Project"))
+          = t("activerecord.attributes.project.name", :default => t("activerecord.labels.project", :default => "Project"))
           \:
-        = @timesheet.project_id
+        = @timesheet.project.name
       %p
         %b
-          = t("activerecord.attributes.account_timesheet.task_id", :default => t("activerecord.labels.task_id", :default => "Task"))
+          = t("activerecord.attributes.taks.name", :default => t("activerecord.labels.task", :default => "Task"))
           \:
-        = @timesheet.task_id
+        = @timesheet.task.try(:name)
       %p
         %b
-          = t("activerecord.attributes.account_timesheet.user_id", :default => t("activerecord.labels.user_id", :default => "User"))
+          = t("activerecord.attributes.user.full_name", :default => t("activerecord.labels.user", :default => "User"))
           \:
-        = @timesheet.user_id
+        = @timesheet.user.full_name
       .wat-cf
-        = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_account_timesheet_path(@timesheet), :class => "button"
-        = link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), account_timesheet_path(@timesheet), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
+        = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_timesheet_path(@timesheet), :class => "button"
+        = link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), timesheet_path(@timesheet), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
 - content_for :sidebar, render(:partial => 'sidebar')

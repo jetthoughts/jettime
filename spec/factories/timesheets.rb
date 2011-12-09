@@ -6,7 +6,7 @@ FactoryGirl.define do
     association :task
     association :user
     hours 1.5
-    date "2011-11-14"
+    date "2011-12-11"
     notes "My Text"
   end
 end

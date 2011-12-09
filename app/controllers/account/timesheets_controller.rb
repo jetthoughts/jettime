@@ -1,8 +1,8 @@
 class Account::TimesheetsController < Account::BaseController
-  # GET /projects
-  # GET /projects.json
+  # GET /timesheets
+  # GET /timesheets.json
   def index
-    @timesheets = current_company.projects.paginate(:page => params[:page])
+    @timesheets = current_user.timesheets.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,70 +10,70 @@ class Account::TimesheetsController < Account::BaseController
     end
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
+  # GET /timesheets/1
+  # GET /timesheets/1.json
   def show
-    @project = current_company.projects.find(params[:id])
+    @timesheet = current_user.timesheets.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @project }
+      format.json { render json: @timesheet }
     end
   end
 
-  # GET /projects/new
-  # GET /projects/new.json
+  # GET /timesheets/new
+  # GET /timesheets/new.json
   def new
-    @project = current_company.projects.build
+    @timesheet = current_user.timesheets.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @project }
+      format.json { render json: @timesheet }
     end
   end
 
-  # GET /projects/1/edit
+  # GET /timesheets/1/edit
   def edit
-    @project = current_company.projects.find(params[:id])
+    @timesheet = current_user.timesheets.find(params[:id])
   end
 
-  # POST /projects
-  # POST /projects.json
+  # POST /timesheets
+  # POST /timesheets.json
   def create
-    @project = current_company.projects.new(params[:project])
+    @timesheet = current_user.timesheets.new(params[:timesheet])
 
     respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render json: @project, status: :created, location: @project }
+      if @timesheet.save
+        format.html { redirect_to @timesheet, notice: 'Timesheet was successfully created.' }
+        format.json { render json: @timesheet, status: :created, location: @timesheet }
       else
         format.html { render action: "new" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.json { render json: @timesheet.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /projects/1
-  # PUT /projects/1.json
+  # PUT /timesheets/1
+  # PUT /timesheets/1.json
   def update
-    @project = current_company.projects.find(params[:id])
+    @timesheet = current_user.timesheets.find(params[:id])
 
     respond_to do |format|
-      if @project.update_attributes(params[:project])
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+      if @timesheet.update_attributes(params[:timesheet])
+        format.html { redirect_to @timesheet, notice: 'Timesheet was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.json { render json: @timesheet.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.json
+  # DELETE /timesheets/1
+  # DELETE /timesheets/1.json
   def destroy
-    @project = current_company.projects.find(params[:id])
-    @project.destroy
+    @timesheet = current_user.timesheets.find(params[:id])
+    @timesheet.destroy
 
     respond_to do |format|
       format.html { redirect_to projects_url }

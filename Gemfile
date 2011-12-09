@@ -16,8 +16,10 @@ gem "haml-rails", ">= 0.3.4", :group => :development
 gem "devise"
 gem 'devise_invitable'
 gem "jquery-rails"
-gem "bson_ext", ">= 1.3.1"
-gem "mongoid", ">= 2.1.5"
+gem "bson_ext", ">= 1.5.1"
+# gem "mongoid", ">= 2.1.5"
+gem 'mongoid', :git => "git://github.com/mongoid/mongoid.git"
+
 # gem 'oa-openid', :require => 'omniauth/openid'
 gem 'omniauth-openid'
 gem 'omniauth'

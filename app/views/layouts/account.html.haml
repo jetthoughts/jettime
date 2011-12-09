@@ -2,6 +2,8 @@
 %html
   %head
     %title JetTime
+    %link{rel: "shortcut icon", href: "http://www.jetthoughts.com/images/favicon.ico"}
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all" />
     =# stylesheet_link_tag 'web_app_theme'
     = stylesheet_link_tag 'web-app-theme/base', 'web-app-theme/themes/default/style.css'
     
@@ -42,6 +44,8 @@
                 Copyright &copy; #{Time.now.year} JetThoughts.
         #sidebar
           = yield :sidebar
-  = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
+  = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js",
+                           "//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"
   = javascript_include_tag :application
+  = yield :javascript
 

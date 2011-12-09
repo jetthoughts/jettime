@@ -11,4 +11,9 @@ class Timesheet
   belongs_to :user, :inverse_of => :timesheets
 
   validates :user_id, :project_id, :presence => true
+  
+  def date=(value)
+    _date = Date.parse(value) rescue Date.strptime(value, '%m/%d/%Y') rescue value.to_date
+    write_attribute(:date, _date)
+  end
 end
