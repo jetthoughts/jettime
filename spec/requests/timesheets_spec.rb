@@ -37,10 +37,10 @@ feature "Timesheets" do
     end
     
     page.should have_content("Timesheet was successfully created")
-    page.should have_content("22/12/2011")
+    page.should have_content("12/22/2011")
     click_link "Timesheets"
     
-    page.should have_content("22/12/2011")
+    page.should have_content("12/22/2011")
   end
   
   scenario "Should not create a new timesheet entry without Hours, Date, Notes" do
