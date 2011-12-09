@@ -25,6 +25,11 @@ describe Timesheet do
       subject.date.day.should eq(22)
       subject.date.year.should eq(2011)
     end
+    
+    it "should parse hours correctly" do
+      subject.hours = "10:30"
+      subject.hours.should eq(10.5)
+    end
   end
   
 end

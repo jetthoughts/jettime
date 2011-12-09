@@ -16,4 +16,8 @@ class Timesheet
     _date = Date.parse(value) rescue Date.strptime(value, '%m/%d/%Y') rescue value.to_date
     write_attribute(:date, _date)
   end
+  
+  def hours=(h)
+    write_attribute :hours, (h.is_a?(String) ? h.to_hours : h)
+  end
 end
