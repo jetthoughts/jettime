@@ -7,6 +7,6 @@ FactoryGirl.define do
     association :user
     hours 1.5
     date "2011-12-11"
-    notes "My Text"
+    notes Faker::Lorem.sentence
   end
 end

@@ -1,14 +1,14 @@
 .block
   .secondary-navigation
     %ul.wat-cf
-      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", account_timesheets_path
-      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_account_timesheet_path
-      %li.active= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_account_timesheet_path
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", timesheets_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_timesheet_path
+      %li.active= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_timesheet_path
   .content
     %h2.title
       = t("web-app-theme.edit", :default => "Edit")
       Timesheet
     .inner
-      = form_for @timesheet, :url => account_timesheet_path(@timesheet), :html => { :class => :form } do |f|
+      = form_for @timesheet, :url => timesheet_path(@timesheet), :html => { :class => :form } do |f|
         = render :partial => "form", :locals => {:f => f}
 - content_for :sidebar, render(:partial => 'sidebar')

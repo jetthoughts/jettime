@@ -34,9 +34,13 @@ describe Account::TimesheetsController do
   end
 
   describe "paths" do
-    it "correct path #staff_index_path" do
+    it "correct path #timesheets_index_path" do
       timesheets_path.should eq("/timesheets")
       timesheets_url(subdomain: "admin", host: "text.com").should eq('http://admin.text.com/timesheets')
+    end
+    
+    it "correct path to edit timesheet page" do
+      edit_timesheet_path(1).should eq("/timesheets/1/edit")
     end
   end
 
