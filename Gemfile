@@ -65,6 +65,7 @@ group :test do
 end
 
 group :deploy do
+  gem 'therubyracer'
   gem 'heroku'
   gem 'thin'
 end
