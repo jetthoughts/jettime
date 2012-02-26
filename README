@@ -3,3 +3,7 @@
 gem install bundler
 
 bundle install
+
+== Test
+
+guard
