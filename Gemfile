@@ -1,9 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'bundler', '1.1.rc'
-gem 'rails', "~> 3.1"
-#gem 'rails', :git => 'git://github.com/rails/rails.git'
-#gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'bundler', '1.1.1'
+gem 'rails', "~> 3.2"
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1"
@@ -17,17 +15,12 @@ gem "devise"
 gem 'devise_invitable'
 gem "jquery-rails"
 gem "bson_ext", ">= 1.5.1"
-# gem "mongoid", ">= 2.1.5"
 gem 'mongoid', :git => "git://github.com/mongoid/mongoid.git"
-
-# gem 'oa-openid', :require => 'omniauth/openid'
 gem 'omniauth-openid'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "airbrake"
 gem "will_paginate", "~> 2"
-#gem "frontend-helpers"
-#gem 'has_scope'
 
 group :development, :test do
   gem 'hpricot'
@@ -55,17 +48,16 @@ group :production do
 end
 
 group :test do
-  gem 'therubyracer'
   gem "capybara"
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'mongoid-rspec'
+  #gem 'mongoid-rspec', require: 'mongoid/rspec'
   gem 'mocha'
   gem 'ffaker', '>= 1.10.1'
 end
 
 group :deploy do
-  gem 'therubyracer'
   gem 'heroku'
+  gem 'heroku-api'
   gem 'thin'
 end
