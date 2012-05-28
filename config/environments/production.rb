@@ -1,9 +1,10 @@
 JetTime::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  config.domain= "heroku.com"
-  config.site_subdomain="jettime"
-  config.admin_subdomain="admin-jettime"
+  config.domain = "heroku.com"
+  config.site_subdomain = "jettime"
+  config.admin_subdomain = "admin-jettime"
+  config.heroku_subdomain_enable = true
 
   # Code is not reloaded between requests
   config.cache_classes = true

@@ -22,8 +22,3 @@ module HerokuSubdomain
   end
 
 end
-
-HerokuSubdomain.configure do |config|
-  config.heroku_api_key = '197c9196f0c294ceea9c8720b7dc5772' || ENV['HEROKU_API_KEY']
-  config.addons = [""]
-end
