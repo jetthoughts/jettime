@@ -11,7 +11,7 @@ module HerokuSubdomain
     end
 
     def heroku_api_key=(val)
-      @heroku ||= Heroku::API.new(api_key: val)
+      @heroku ||= Heroku::API.new(api_key: val, mock: Rails.env.test?)
     end
 
     def heroku_api=(val)

@@ -1,9 +1,11 @@
 module HerokuSubdomain
   class Addon < Base
 
+    attr_accessor :name
+
     def initialize(options=nil)
       super
-      @name = @options.delete(:name) if @options.has_key?(:name)
+      @name = @options[:name] if @options && @options.has_key?(:name)
     end
 
     def self.by_app(app)

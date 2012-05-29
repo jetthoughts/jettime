@@ -8,11 +8,15 @@ module HerokuSubdomain
     end
 
     def initialize(options=nil)
+      @options = options && options.symbolize_keys! || {}
+      @error = options.delete(:error) if @options.has_key?(:error)
+    end
+
+    def self.new(options=nil)
       if options.is_a?(Array)
-        return options.map { |o| self.class.new(o) }
+        return options.map { |o| self.new(o) }
       else
-        @options = options && options.symbolize_keys! || {}
-        @error = options.delete(:error) if @options.has_key?(:error)
+        super
       end
     end
 
@@ -35,7 +39,7 @@ module HerokuSubdomain
 
     def self.wrapper(method_name, *attrs)
       response = heroku.send(method_name, *attrs)
-      if response.error.blank?
+      unless response.respond_to?(:error)
         response.body
       else
         nil
