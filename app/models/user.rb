@@ -8,6 +8,13 @@ class User
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable,
          :omniauthable, :invite_for => 2.weeks
 
+  #invitable
+  field :invitation_token, type: String
+  field :invitation_sent_at, :type => Time
+  field :invitation_accepted_at, :type => Time
+  field :invitation_limit, :type => Integer
+  field :invited_by_id, type: String
+  field :invited_by_type, type: String
 
   field :admin, :type => Boolean, :default => false
   field :first_name

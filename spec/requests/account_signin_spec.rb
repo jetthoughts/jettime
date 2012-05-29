@@ -17,7 +17,7 @@ feature "Account Signing in" do
     visit(root_url(:subdomain => @company.subdomain))
 
     page.should have_content("Sign in")
-    within("#user_new") do
+    within("form") do
       fill_in 'Email', :with => @user.email
       fill_in 'Password', :with =>"monkey"
     end
@@ -31,7 +31,7 @@ feature "Account Signing in" do
   scenario "without correct fields" do
     visit(root_url(:host => @company.domain))
     page.should have_content("Sign in")
-    within("#user_new") do
+    within("form") do
       fill_in 'Email', :with => 'monkey_incorrect@mailinator.com'
       fill_in 'Password', :with =>"monkeyinvalid"
     end
@@ -45,7 +45,7 @@ feature "Account Signing in" do
     visit(root_url(:host => @company_ext.domain))
 
     page.should have_content("Sign in")
-    within("#user_new") do
+    within("form") do
       fill_in 'Email', :with => @user.email
       fill_in 'Password', :with =>"monkey"
     end

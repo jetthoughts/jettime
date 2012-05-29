@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'bundler', '1.1.1'
+gem 'bundler', '1.2.0.pre'
 gem 'rails', "~> 3.2"
 
 group :assets do

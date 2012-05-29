@@ -6,5 +6,5 @@ tmp/
 .sass-cache/
 #config/mongoid.yml
 .idea
-public/assets
+public/assets/*
 Procfile

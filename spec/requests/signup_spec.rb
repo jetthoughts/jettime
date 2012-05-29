@@ -9,7 +9,7 @@ feature "Signing up" do
     visit("/")
     click_link 'Register'
     email = Faker::Internet.email
-    within("#user_new") do
+    within("form") do
       fill_in 'Name', :with => 'Monkey LTD'
       fill_in 'Domain', :with => 'jettime'
       fill_in 'Email', :with => email

@@ -14,7 +14,7 @@ feature "Timesheets" do
     
     visit(root_url(:subdomain => @company.subdomain))
     page.should have_content("Sign in")
-    within("#user_new") do
+    within("form") do
       fill_in 'Email', :with => @user.email
       fill_in 'Password', :with =>"monkey"
     end
