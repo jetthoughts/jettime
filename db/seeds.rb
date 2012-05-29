@@ -6,5 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(:email => "admin@mailinator.com", :password=>"monkey", :admin => true)
-User.create!(:email => "user@mailinator.com", :password=>"monkey", :admin => false)
+company = Company.create!(name: "JetThoughts, LLC", subdomain: "jets")
+User.create!(:email => "admin@mailinator.com", :password=>"monkey", :admin => true, company: company)
+User.create!(:email => "user@mailinator.com", :password=>"monkey", :admin => false, company: company)
