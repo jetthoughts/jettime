@@ -12,7 +12,7 @@ module HerokuSubdomain
     end
 
     def self.create(name)
-      self.new wrapper(:post_app, {name: name})
+      self.new wrapper(:post_app, {name: name, stack: :cedar})
     end
 
     def self.get_app(name)
