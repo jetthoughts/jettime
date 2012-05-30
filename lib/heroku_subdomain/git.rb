@@ -27,7 +27,8 @@ module HerokuSubdomain
 
       def push(remote_name)
         #`git push --force #{remote_name} #{current_branch}:master`
-        `git push --force #{remote_name} #{current_branch}:master`
+        #`git push --force #{remote_name} #{current_branch}:master`
+        `git push #{remote_name} refs/remotes/local/master:refs/heads/master`
       end
 
       def git_directory?
