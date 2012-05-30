@@ -2,6 +2,9 @@ source 'http://rubygems.org'
 
 gem 'bundler', '1.2.0.pre'
 gem 'rails', "~> 3.2"
+gem 'unicorn'
+gem 'heroku'
+gem 'heroku-api'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1"
@@ -54,10 +57,4 @@ group :test do
   #gem 'mongoid-rspec', require: 'mongoid/rspec'
   gem 'mocha'
   gem 'ffaker', '>= 1.10.1'
-end
-
-group :deploy do
-  gem 'heroku'
-  gem 'heroku-api'
-  gem 'thin'
 end
