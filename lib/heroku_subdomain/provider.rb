@@ -11,14 +11,7 @@ module HerokuSubdomain
     end
 
     def create(app_name)
-      response = @heroku.post_app(name: app_name)
-      app = case response.status
-            when 202, 200
-              HerokuSubdomain::App.new(response.body)
-            else
-              p response
-              nil
-            end
+      app = App.create(app_name)
       app.addons(@addons)
       app.vars(@vars)
       app.update_repo

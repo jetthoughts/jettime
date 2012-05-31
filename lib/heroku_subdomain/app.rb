@@ -12,7 +12,7 @@ module HerokuSubdomain
     end
 
     def self.create(name)
-      self.new wrapper(:post_app, {name: name, stack: :cedar})
+      self.new wrapper(:post_app, {name: name, stack: "cedar"})
     end
 
     def self.get_app(name)
@@ -20,6 +20,7 @@ module HerokuSubdomain
     end
 
     def update_repo
+      Git.init_directory unless Git.git_directory?
       Git.add_remote name, git_url unless Git.remotes.include?(name)
       Git.push name
     end

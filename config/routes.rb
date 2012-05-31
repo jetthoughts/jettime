@@ -2,16 +2,24 @@ require "routes_constraints/subdomain"
 
 JetTime::Application.routes.draw do
 
-  constraints(RoutesConstraints::SiteSubdomain) do
-    root :to => "site#index"
-  end
-
   devise_for :users,
              :controllers => {
                  :omniauth_callbacks => "users/omniauth_callbacks",
                  :sessions => "sessions",
                  :registrations => "registrations"
              }
+
+  constraints(RoutesConstraints::SiteSubdomain) do
+    root :to => "site#index"
+  end
+
+  constraints(RoutesConstraints::AdminSubdomain) do
+    scope module: "admin" do
+      root :to => "dashboards#show"
+      resource :settings
+      resource :dashboards
+    end
+  end
 
   constraints(RoutesConstraints::AccountSubdomain) do
     #scope :module => "account", :as => "account" do

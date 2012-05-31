@@ -12,4 +12,10 @@ module RoutesConstraints
       !request.subdomain.present? || request.subdomain == Rails.application.config.site_subdomain
     end
   end
+
+  class AdminSubdomain
+    def self.matches?(request)
+      !request.subdomain.present? || request.subdomain == Rails.application.config.admin_subdomain
+    end
+  end
 end

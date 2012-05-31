@@ -1,7 +1,7 @@
 require "spec_helper"
 
 feature "Account Signing in" do
-  background do
+  background(:all) do
     @company = create(:company)
     @user = create(:user, :company => @company )
     @company.owner = @user

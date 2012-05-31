@@ -44,4 +44,19 @@ describe User do
     
     it { should respond_to(:timesheets) }
   end
+
+  context "role" do
+
+    context "admin" do
+      subject { create(:admin) }
+
+      it { should be_admin }
+    end
+
+    context "user" do
+      subject { create(:user) }
+
+      it { should_not be_admin }
+    end
+  end
 end

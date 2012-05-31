@@ -1,8 +1,9 @@
 JetTime::Application.configure do
 
-  config.domain= "lvh.me:3000"
-  config.site_subdomain="www"
-  config.admin_subdomain="admin"
+  config.domain          = "lvh.me:3000"
+  config.site_subdomain  ="www"
+  config.admin_subdomain ="admin"
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -31,7 +32,7 @@ JetTime::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug                           = true
-  config.action_mailer.default_url_options      = {:host => config.domain}
+  config.action_mailer.default_url_options      = {host: config.domain}
   config.action_mailer.perform_deliveries       = false
   config.action_mailer.raise_delivery_errors    = true
   config.action_mailer.default :charset => "utf-8"

@@ -24,6 +24,8 @@ class User
   has_many :members
   has_many :timesheets
 
+  scope :admin, where(admin: true)
+
   accepts_nested_attributes_for :company
 
   validates_presence_of :company
@@ -37,7 +39,11 @@ class User
   #  super
   #end
   def self.find_for_authentication(conditions={})
-    Company.where(subdomain: conditions.delete(:subdomain)).first.users.where(conditions).first
+    if conditions.has_key?(:subdomain) && !conditions[:subdomain].blank?
+      Company.where(subdomain: conditions.delete(:subdomain)).first.users.where(conditions).first
+    else
+      User.admin.where(conditions).first
+    end
   end
 
   def update_with_password(params={})

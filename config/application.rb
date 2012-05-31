@@ -53,13 +53,17 @@ module JetTime
 
     config.generators do |g|
       g.template_engine :haml
-      g.test_framework :rspec, :fixture_replacement => :factory_girl, :views => false, :helper => false
+      g.test_framework :rspec, fixture_replacement: :factory_girl, views: false, helper: false
       g.view_specs false
       g.helper_specs false
       g.helper false
       g.assets false
-      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
+
+    config.site_subdomain="www"
+    config.admin_subdomain="admin"
+    config.heroku_subdomain_enable = false
 
     config.to_prepare do
       Devise::SessionsController.layout "sessions"

@@ -8,3 +8,23 @@ bundle install
 
 2
 guard
+
+
+== Init heroku subdomain
+
+# Create a  ssh key
+
+    ```
+    $ ssh-keygen
+    > ~/.ssh/jettime.pem
+    ```
+
+# Add public key to Github deploy keys
+
+# Add public key to heroku keys
+
+    ```
+    $ heroku keys:add ~/.ssh/jettime.pem
+    ```
+
+# Add private key via admin page to heroku instances

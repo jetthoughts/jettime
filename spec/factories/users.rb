@@ -5,5 +5,9 @@ FactoryGirl.define do
     password_confirmation "monkey"
 
     company
+
+    factory :admin do
+      admin true
+    end
   end
 end

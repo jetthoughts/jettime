@@ -6,7 +6,8 @@
       - flash.each do |type, message|
         %div{ :class => "message #{{:alert=>'error'}[type] || type}" }
           %p= message
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form login" }) do |f|
+
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form login" }) do |f|
       .group.wat-cf
         .left= f.label :email, :class => "label right"
         .right= f.text_field :email, :class => "text_field"
@@ -24,4 +25,4 @@
             = image_tag "web-app-theme/themes/default/images/icons/key.png"
             Login
 
-    = render :partial => "devise/shared/links"
+    = render "devise/shared/links"
