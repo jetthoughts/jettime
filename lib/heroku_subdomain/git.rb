@@ -36,7 +36,7 @@ module HerokuSubdomain
       end
 
       def init_directory
-        %{git init}
+        %{git init .}
         base_repo ||= "git://github.com/jetthoughts/jettime.git"
         add_remote("local", base_repo)
       end
