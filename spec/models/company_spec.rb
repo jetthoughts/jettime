@@ -40,4 +40,17 @@ describe Company do
     end
 
   end
+
+  context "heroku subdomain" do
+
+    subject { create(:company) }
+
+    @focus
+    it "should create a heroku app" do
+      -> {
+        subject
+      }.should change { HerokuSubdomain::App.all.size }.by 1
+    end
+
+  end
 end

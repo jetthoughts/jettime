@@ -7,7 +7,9 @@ module HerokuSubdomain
       @heroku = options[:heroku]
       @addons = (options[:addons] || []).reject(&:blank?)
       @vars   = options[:vars] || {}
+      @mock   = @heroku.instance_variable_get("@connection").connection[:mock]
       HerokuSubdomain::Base.heroku = @heroku
+      HerokuSubdomain::Base.mock = @heroku.instance_variable_get("@connection").connection[:mock]
     end
 
     def create(app_name)

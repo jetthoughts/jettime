@@ -10,9 +10,9 @@ require "sprockets/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  # Bundler.require *Rails.groups(:assets => %w(development test))
+  Bundler.require *Rails.groups(:assets => %w(development test))
   # If you want your assets lazily compiled in production, use this line
-  Bundler.require(:default, :assets, Rails.env)
+  #Bundler.require(:default, :assets, Rails.env)
 end
 
 module JetTime
@@ -23,6 +23,7 @@ module JetTime
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/observers)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -30,6 +31,7 @@ module JetTime
 
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+    config.mongoid.observers = :company_observer
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.

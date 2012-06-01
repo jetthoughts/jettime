@@ -25,7 +25,7 @@ Spork.prefork do
     config.mock_with :mocha
     # config.mock_with :flexmock
     # config.mock_with :rr
-    #config.mock_with :rspec
+    # config.mock_with :rspec
 
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
     #config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -64,11 +64,12 @@ end
 Spork.each_run do
   # This code will be run each time you run your specs.
   FactoryGirl.reload
-  # ActiveSupport::Dependencies.clear
-  # 
+  ActiveSupport::Dependencies.clear
+
   DatabaseCleaner.strategy = :truncation
   DatabaseCleaner.clean_with(:truncation)
-  
+
+  HerokuSubdomain::App.any_instance.stubs(:update_repo).returns(nil)
 end
 
 # --- Instructions ---

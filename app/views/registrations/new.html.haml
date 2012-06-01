@@ -16,7 +16,9 @@
           = cf.label :subdomain, "Domain", :class => "label"
           %span.description http://
           = cf.text_field :subdomain, :class => "text_field", :style => "width: 70%"
-          %span.description .jettime.com
+          %span.description
+            \.
+            = Rails.application.config.domain
 
       .group
         = f.label :email, :class => "label"

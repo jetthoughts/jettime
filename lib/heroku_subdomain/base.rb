@@ -4,7 +4,7 @@ module HerokuSubdomain
     attr_accessor :error
 
     class << self
-      attr_accessor :heroku
+      attr_accessor :heroku, :mock
     end
 
     def initialize(options=nil)

@@ -44,8 +44,8 @@ module HerokuSubdomain
         init_ssh_config
         %x{git init .}
         base_repo ||= "git://github.com/jetthoughts/jettime.git"
-        add_remote("local", base_repo)
-        pull("local")
+        add_remote("origin", base_repo)
+        pull("origin")
       end
 
       def init_ssh_config

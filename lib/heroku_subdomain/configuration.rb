@@ -1,10 +1,10 @@
 module HerokuSubdomain
   class Configuration
 
-    OPTIONS = [:heroku_api_key, :heroku, :heroku_api, :addons, :vars].freeze
+    OPTIONS = [:heroku_api_key, :heroku, :heroku_api, :addons, :vars, :mock].freeze
 
     # The API key for your project, found on the project edit form.
-    attr_accessor :heroku, :addons, :vars
+    attr_accessor :heroku, :addons, :vars, :mock
 
     def initialize
       @heroku = nil
