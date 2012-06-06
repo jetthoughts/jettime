@@ -32,25 +32,21 @@ describe Company do
   end
 
   context "domain" do
-
     subject { create(:company) }
 
     it "should show full domain" do
       subject.domain.should eq(subject.subdomain + "." + Rails.application.config.domain)
     end
-
   end
 
   context "heroku subdomain" do
-
     subject { create(:company) }
 
     @focus
-    it "should create a heroku app" do
+    xit "should create a heroku app" do
       -> {
         subject
       }.should change { HerokuSubdomain::App.all.size }.by 1
     end
-
   end
 end
