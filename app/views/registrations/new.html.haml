@@ -7,7 +7,9 @@
         %div{ :class => "message #{type}" }
           %p= message
     = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form" }) do |f|
-      = f.fields_for(resource.build_company) do |cf|
+      = f.object.errors.full_messages
+      = debug f.object
+      = f.fields_for :company, resource.build_company do |cf|
         .group
           = cf.label :name, "Company Name", :class => "label"
           = cf.text_field :name, :class => "text_field"

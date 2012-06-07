@@ -65,18 +65,16 @@ class User
 
   has_many :members
   has_many :timesheets
-  #has_many :companies, inverse_of: :owner
-
 
   accepts_nested_attributes_for :company
 
-  validates_presence_of :company
+  validates :company, associated: true
 
   before_create :reset_authentication_token
 
   attr_accessor :subdomain
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :company_attributes
 
 
   # Scopes
@@ -105,11 +103,10 @@ class User
 
   #sample of access_token: {"provider"=>"google_apps", "uid"=>"https://www.google.com/accounts/o8/id?id=AItOawlIIiLY8oRYWmOlldK2zWkaFSxKzE3TykU", "user_info"=>{"first_name"=>"Michael", "last_name"=>"Nikitochkin", "name"=>"Michael Nikitochkin"}}
   def self.find_for_google_apps_oauth(access_token)
-    if user = User.where(email: access_token["user_info"]["email"]).first
-      user
-    else # Create a user with a stub password.
-      User.create(:email => access_token["user_info"]["email"], :password => Devise.friendly_token[0, 20])
-    end
+    access_token_email = access_token["user_info"]["email"]
+
+    user = User.where(email: access_token_email).first
+    user || User.create(email: access_token_email, password: Devise.friendly_token[0, 20])
   end
 
   def build_company(args={})

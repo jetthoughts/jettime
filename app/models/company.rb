@@ -1,18 +1,18 @@
 class Company
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :subdomain, :type => String
   field :custom_domain, :type => String
   field :name, :type => String
 
-  validates_presence_of :name
-  validates_presence_of :subdomain
-  validates_uniqueness_of :subdomain
+  validates :name, :subdomain, presence: true
+  validates :subdomain, uniqueness: true
 
-  has_many :users, inverse_of: :company
+  has_many :users
   has_many :projects
 
-  belongs_to :owner, :class_name => "User"
+  belongs_to :owner, class_name: "User"
 
   index({subdomain: 1}, {unique: true})
   index({name: 1}, {unique: true})

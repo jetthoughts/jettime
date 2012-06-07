@@ -21,7 +21,7 @@ gem "bson_ext", ">= 1.5.1"
 
 #Database
 #TODO: Add note, why we use mongoid from github
-gem 'mongoid', :git => "git://github.com/mongoid/mongoid.git"
+gem 'mongoid', "~> 3.0.0.rc"#, :git => "git://github.com/mongoid/mongoid.git"
 
 # Authentication/authorization
 gem 'devise'

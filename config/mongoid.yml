@@ -1,4 +1,14 @@
+test:
+  host: localhost
+  database: jettime_test
+
+# set these environment variables on your prod server
+production:
+  uri: <%= ENV['MONGOLAB_URI'] %>
+
 development:
+  host: localhost
+  database: jettime_development
   # Configure available database sessions. (required)
   sessions:
     # Defines the default session. (required)
