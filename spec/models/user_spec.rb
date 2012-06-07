@@ -9,7 +9,7 @@ describe User do
 
   context "validations" do
     it { should_not be_valid }
-    it { should have(1).error_on(:email) }
+    it { should have(2).error_on(:email) }
     it { should have(1).error_on(:password) }
     it { should have(1).error_on(:company) }
   end
@@ -43,6 +43,9 @@ describe User do
     subject { create(:user) }
     
     it { should respond_to(:timesheets) }
+  end
+
+  describe ".find_for_authentication" do
   end
 
   context "role" do

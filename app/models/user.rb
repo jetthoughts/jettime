@@ -8,6 +8,7 @@ class User
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable,
          :omniauthable, :invite_for => 2.weeks
 
+
   #invitable
   field :invitation_token, type: String
   field :invitation_sent_at, :type => Time
@@ -17,14 +18,55 @@ class User
   field :invited_by_type, type: String
 
   field :admin, :type => Boolean, :default => false
+
+## Database authenticatable
+  field :email, :type => String
+  field :encrypted_password, :type => String
+
+  ## Recoverable
+  field :reset_password_token, :type => String
+  field :reset_password_sent_at, :type => Time
+
+  ## Rememberable
+  field :remember_created_at, :type => Time
+
+  ## Trackable
+  field :sign_in_count, :type => Integer
+  field :current_sign_in_at, :type => Time
+  field :last_sign_in_at, :type => Time
+  field :current_sign_in_ip, :type => String
+  field :last_sign_in_ip, :type => String
+
+  ## Confirmable
+  # field :confirmation_token,   :type => String
+  # field :confirmed_at,         :type => Time
+  # field :confirmation_sent_at, :type => Time
+  # field :unconfirmed_email,    :type => String # Only if using reconfirmable
+
+  ## Lockable
+  # field :failed_attempts, :type => Integer # Only if lock strategy is :failed_attempts
+  # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
+  # field :locked_at,       :type => Time
+
+  # Token authenticatable
+  field :authentication_token, :type => String
+
+  ## Invitable
+  # field :invitation_token, :type => String
+
+  validates :email, :encrypted_password, presence: true
+  validates :email, uniqueness: true, allow_nil: true
+  index({email: 1}, {unique: true})
+
   field :first_name
   field :last_name
 
-  belongs_to :company, :autosave => true
+  belongs_to :company, :autosave => true, inverse_of: :users
+
   has_many :members
   has_many :timesheets
+  #has_many :companies, inverse_of: :owner
 
-  scope :admin, where(admin: true)
 
   accepts_nested_attributes_for :company
 
@@ -33,6 +75,12 @@ class User
   before_create :reset_authentication_token
 
   attr_accessor :subdomain
+
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+
+
+  # Scopes
+  scope :admin, where(admin: true)
 
   #def self.find_for_authentication(conditions={})
   #  conditions[:company] = true

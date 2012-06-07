@@ -23,7 +23,9 @@ feature "Admin Signing In" do
 
   scenario "without correct fields" do
     visit(new_user_session_url(host: @company.domain))
+
     page.should have_content("Sign in")
+
     within("form") do
       fill_in 'Email', :with => 'monkey_incorrect@mailinator.com'
       fill_in 'Password', :with =>"monkeyinvalid"

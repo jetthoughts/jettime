@@ -37,6 +37,16 @@ describe Company do
     it "should show full domain" do
       subject.domain.should eq(subject.subdomain + "." + Rails.application.config.domain)
     end
+
+    it "should be indexed by subdomains" do
+      create(:company, subdomain: "admin")
+      Company.where(subdomain: "admin").first.should be
+    end
+
+    it "should be indexed by names" do
+      create(:company, name: "admin")
+      Company.where(name: "admin").first.should be
+    end
   end
 
   context "heroku subdomain" do
