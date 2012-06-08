@@ -2,17 +2,12 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource
 
+    resource.company.owner = resource
+
     if resource.save
       if resource.active_for_authentication?
         #set_flash_message :notice, :signed_up if is_navigational_format?
         #sign_in(resource_name, resource)
-        puts "Company: "
-        #resource.reload
-        p resource.company.valid?
-        p resource.company.errors.full_messages
-
-        resource.company.owner = resource
-        #resource.company.save!
         respond_with resource, :location => new_user_session_url(:subdomain => resource.company.subdomain)
       else
         set_flash_message :notice, :inactive_signed_up, :reason => inactive_reason(resource) if is_navigational_format?

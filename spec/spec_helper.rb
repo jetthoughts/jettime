@@ -35,9 +35,19 @@ Spork.prefork do
       DatabaseCleaner.clean
     end
 
+    config.before(:each, type: :request) do
+      Capybara.configure do |config|
+        config.server_port    = 9293
+        config.default_host   = 'http://lvh.me:9293'
+        config.app_host       = 'http://lvh.me:9293'
+      end
+
+      host! 'lvh.me:9293'
+    end
+
     config.infer_base_class_for_anonymous_controllers = false
     config.filter_run :focus => true
-    config.run_all_when_everything_filtered = true
+    config.run_all_when_everything_filtered                = true
     config.treat_symbols_as_metadata_keys_with_true_values = true
 
     config.include Factory::Syntax::Methods

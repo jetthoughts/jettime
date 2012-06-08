@@ -7,7 +7,7 @@ feature "Signing up" do
 
   scenario "Signing up with correct fields" do
     visit("/")
-    click_link 'Register'
+    click_on 'Register'
 
     within("form") do
       fill_in 'Name', :with => 'Monkey LTD'
@@ -17,12 +17,10 @@ feature "Signing up" do
       fill_in 'Re-enter Password', :with =>"monkey"
     end
 
-    click_button 'Sign up'
-
-    #should see success alert
+    click_on 'Sign up'
 
     company = Company.where(name: 'Monkey LTD').first
-    company.should_not be_nil
+    company.should be
     company.owner.should_not be_nil
     company.owner.email.should == 'valid@email.com'
 

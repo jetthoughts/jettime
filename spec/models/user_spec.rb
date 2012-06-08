@@ -11,7 +11,7 @@ describe User do
     it { should_not be_valid }
     it { should have(2).error_on(:email) }
     it { should have(1).error_on(:password) }
-    it { should have(1).error_on(:company) }
+    it { should have(0).error_on(:company) }
   end
 
   context "company" do

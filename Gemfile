@@ -20,8 +20,8 @@ gem "jquery-rails"
 gem "bson_ext", ">= 1.5.1"
 
 #Database
-#TODO: Add note, why we use mongoid from github
-gem 'mongoid', "~> 3.0.0.rc"#, :git => "git://github.com/mongoid/mongoid.git"
+                             #TODO: Add note, why we use mongoid from github
+gem 'mongoid', "~> 3.0.0.rc" #, :git => "git://github.com/mongoid/mongoid.git"
 
 # Authentication/authorization
 gem 'devise'
@@ -43,24 +43,21 @@ group :development, :test do
   gem 'web-app-theme' #, :git => 'git://github.com/pilu/web-app-theme.git'
 
   #TODO: Why we use rspec from github
-  gem "rspec-rails",        :git => "git://github.com/rspec/rspec-rails.git"
-  gem "rspec",              :git => "git://github.com/rspec/rspec.git"
-  gem "rspec-core",         :git => "git://github.com/rspec/rspec-core.git"
-  gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
-  gem "rspec-mocks",        :git => "git://github.com/rspec/rspec-mocks.git"
+  gem 'rspec-rails', '~> 2.0'
+  #,        :git => "git://github.com/rspec/rspec-rails.git"
 
-  gem 'guard-spork', :require => false
-  gem 'guard-bundler', :require => false
-  gem 'guard-rspec', :require => false
+  gem 'guard-spork', require: false
+  gem 'guard-bundler', require: false
+  gem 'guard-rspec', require: false
+
   gem 'growl'
-  gem 'rb-inotify', :require => false
-  gem 'rb-fsevent', :require => false
-  gem 'rb-fchange', :require => false
+  gem 'rb-inotify', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-fchange', require: false
 
-  gem 'spork', :require => false
+  gem 'spork', require: false
 
-  gem 'foreman', :require => false
-
+  gem 'foreman', require: false
 end
 
 group :production do
@@ -69,11 +66,14 @@ group :production do
 end
 
 group :test do
-  gem "capybara"
+  gem 'capybara'
   gem 'database_cleaner'
+
   gem 'factory_girl', '~> 2.6.0'
   gem 'factory_girl_rails'
+
   #gem 'mongoid-rspec', require: 'mongoid/rspec'
+
   gem 'mocha'
   gem 'ffaker', '>= 1.10.1'
 end
