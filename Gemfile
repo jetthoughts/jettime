@@ -43,7 +43,8 @@ group :development, :test do
   gem 'web-app-theme' #, :git => 'git://github.com/pilu/web-app-theme.git'
 
   #TODO: Why we use rspec from github
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '>= 2.10.0'
+  gem 'rspec', '>= 2.10.0'
   #,        :git => "git://github.com/rspec/rspec-rails.git"
 
   gem 'guard-spork', require: false
