@@ -1,14 +1,14 @@
 require "spec_helper"
 
 feature "Account Signing in" do
-  background(:all) do
+  background(:each) do
     @company = create(:company)
-    @user = create(:user, :company => @company )
+    @user = create(:user, company: @company)
     @company.owner = @user
     @company.save!
 
     @company_ext = create(:company)
-    @user_ext = create(:user, :company => @company_ext )
+    @user_ext = create(:user, company: @company_ext)
     @company_ext.owner = @user_ext
     @company_ext.save!
   end
@@ -29,8 +29,10 @@ feature "Account Signing in" do
   end
 
   scenario "without correct fields" do
-    visit(root_url(:host => @company.domain))
+    visit root_url(:host => @company.domain)
+
     page.should have_content("Sign in")
+
     within("form") do
       fill_in 'Email', :with => 'monkey_incorrect@mailinator.com'
       fill_in 'Password', :with =>"monkeyinvalid"

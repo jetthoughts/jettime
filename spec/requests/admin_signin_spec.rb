@@ -1,7 +1,7 @@
 require "spec_helper"
 
 feature "Admin Signing In" do
-  background(:all) do
+  background(:each) do
     @company = create(:company, subdomain: "admin")
     @admin   = create(:admin, company: @company)
   end
@@ -11,8 +11,8 @@ feature "Admin Signing In" do
 
     page.should have_content("Sign in")
     within("form") do
-      fill_in 'Email', :with => @admin.email
-      fill_in 'Password', :with =>"monkey"
+      fill_in 'Email', with: @admin.email
+      fill_in 'Password', with: "monkey"
     end
 
     click_button 'Login'
@@ -27,8 +27,8 @@ feature "Admin Signing In" do
     page.should have_content("Sign in")
 
     within("form") do
-      fill_in 'Email', :with => 'monkey_incorrect@mailinator.com'
-      fill_in 'Password', :with =>"monkeyinvalid"
+      fill_in 'Email', with: 'monkey_incorrect@mailinator.com'
+      fill_in 'Password', with: "monkeyinvalid"
     end
 
     click_button 'Login'
