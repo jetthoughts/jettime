@@ -39,11 +39,8 @@ module HerokuSubdomain
 
     def self.wrapper(method_name, *attrs)
       response = heroku.send(method_name, *attrs)
-      unless response.respond_to?(:error)
-        response.body
-      else
-        nil
-      end
+
+      response.body unless response.respond_to?(:error)
     end
 
     def wrapper(*attrs)
