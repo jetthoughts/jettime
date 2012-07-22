@@ -1,27 +1,28 @@
-source 'http://rubygems.org'
+source :rubygems
 
 gem 'bundler', '>= 1.2.0.pre'
-gem 'rails', "~> 3.2"
+gem 'rails', '~> 3.2'
+
 gem 'unicorn'
+
 gem 'heroku'
 gem 'heroku-api'
 
 group :assets do
-  gem 'sass-rails', "  ~> 3.1"
-  gem 'coffee-rails', "~> 3.1"
+  gem 'sass-rails', '  ~> 3.1'
+  gem 'coffee-rails', '~> 3.1'
   gem 'uglifier'
 end
 
 # View
-gem "haml", ">= 3.1.2"
-gem "haml-rails", ">= 0.3.4", :group => :development
+gem 'haml', '>= 3.1.2'
+gem 'haml-rails', '>= 0.3.4', :group => :development
 
-gem "jquery-rails"
-gem "bson_ext", ">= 1.5.1"
+gem 'jquery-rails'
 
 #Database
-                             #TODO: Add note, why we use mongoid from github
-gem 'mongoid', "~> 3.0.0.rc" #, :git => "git://github.com/mongoid/mongoid.git"
+gem 'mongoid', '>= 3.0.0'
+gem 'bson_ext', '>= 1.5.1'
 
 # Authentication/authorization
 gem 'devise'
@@ -29,13 +30,13 @@ gem 'devise_invitable'
 gem 'devise-encryptable'
 
 
-gem 'omniauth-openid'
 gem 'omniauth'
+gem 'omniauth-openid'
 gem 'omniauth-google-oauth2'
 
 # Helpers
-gem "airbrake"
-gem "will_paginate", "~> 2"
+gem 'airbrake'
+gem 'will_paginate', '~> 2'
 
 group :development, :test do
   gem 'hpricot'
@@ -45,7 +46,6 @@ group :development, :test do
   #TODO: Why we use rspec from github
   gem 'rspec-rails', '>= 2.10.0'
   gem 'rspec', '>= 2.10.0'
-  #,        :git => "git://github.com/rspec/rspec-rails.git"
 
   gem 'guard-spork', require: false
   gem 'guard-bundler', require: false
@@ -77,4 +77,6 @@ group :test do
 
   gem 'mocha'
   gem 'ffaker', '>= 1.10.1'
+
+  gem 'rake'
 end
